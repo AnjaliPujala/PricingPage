@@ -1,0 +1,131 @@
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    background-color: #f4f4f4;
+}
+
+header {
+    background: linear-gradient(to right, #14b5d5, #90afe5);
+    color: #fff;
+    text-align: center;
+    padding: 1px;
+}
+
+.pricing-plans {
+    background-color: #fff; 
+    padding: 20px;
+    display: flex;
+    justify-content: space-around;
+    margin: 20px; 
+}
+.myplans {
+    padding: 20px;
+    width: 30%;
+    margin: 20px;
+    border: 2px solid #ddd; 
+    border-radius: 10px;
+   
+    background: linear-gradient(20deg, rgb(95, 212, 233), rgb(218, 232, 240));
+}
+
+.plan-title {
+    border: 2px solid #1c1c1c; 
+    padding: 10px;
+    background-color: #0c0c0c; 
+    border-radius: 10px;
+    color: #fff;
+    text-align: center;
+    margin-bottom: 15px;
+}
+
+ul {
+    list-style-type: none; 
+    padding: 0;
+}
+
+li {
+    font-size: 18px; 
+    font-family: 'Courier New', Courier, monospace;
+    font-weight: bolder;
+    color: #333; 
+}
+
+.plan-price {
+    font-size: 24px; 
+    color: #1c1c1c;
+}
+
+.buy-now-btn {
+    background-color: #0289ae; 
+    color: #fff;
+    padding: 12px 20px;
+    border: 1px solid #0278ae;
+    cursor: pointer;
+    font-size: 18px;
+    border-radius: 5px;
+    border-style: outset;
+}
+
+.buy-now-btn:hover {
+    background-color: #1f0218;
+    padding: 15px 20px;
+}
+
+footer {
+    background: linear-gradient(to right, #14b5d5, #90afe5);
+    font-size: 15px;
+    color: #1c1c1c;
+    padding: 10px;
+    position: relative;
+    bottom: 0;
+    width: 100%;
+    text-align: center;
+}
+.feature { 
+    display: flex;
+    align-items: center;
+}
+
+.feature::before {
+    content: '\2714'; 
+    font-size: 20px;
+    color: #34c759;
+    margin-right: 10px; 
+}
+
+.feature-disabled::before {
+    content: '\2718';
+    font-size: 20px;
+    color: #ff3b30; 
+    margin-right: 10px; 
+}
+@media screen and (min-width: 600px) {
+    .myplans {
+        width: 50%; 
+    }
+}
+.CurrencySelection{
+    justify-content: center;
+    background: linear-gradient(to right, #14b5d5, #90afe5);
+    padding: 5px;
+    border-radius: 10px;
+    border-style: inset;
+    font-size: 15px;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    color: #fff;
+    margin: 10px;
+    text-align: center;
+}
+select{
+    font-size: 20px;
+    background: linear-gradient(to right, #2295dc, #afd2e5);
+    color: #000;
+    border-radius: 10px;
+    width: 20%;
+    height: 30px;
+    margin-bottom:5px ;
+    flex-direction: column;
+    
+}

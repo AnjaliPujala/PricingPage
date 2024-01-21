@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>PricingPage</title>
+</head>
+
+<body>
+    <header>
+        <h1>PRICING</h1>
+        <p>CHOOSE YOUR PLAN HERE !!</p>
+    </header>
+    <div class="CurrencySelection">
+        <p>Select the currency values</p>
+        <select id="currency-select" title="dropdowns" onchange="updateCurrencyAndUnits()">
+        </select>
+        <select id="units-select" title="dropdowns" onchange="updateCurrencyAndUnits()">
+        </select>
+    </div>
+    <section class="pricing-plans">
+        <article class="myplans", id="beginner">
+            <h2 class="plan-title beg">BEGINNER</h2>
+
+            <ul>
+                <li class="feature">24/7 Customer Support</li>
+                <li class="feature-disabled">Basic Analytics Dashboard</li>
+                <li class="feature-disabled">Premium Data Security</li>
+            </ul>
+
+            <p data-price="20.99" class="plan-price"><b class="plan-price-content">$20.99</b>/month</p>
+
+            <button class="buy-now-btn">Buy Now &rightarrow;</button>
+        </article>
+
+        <article class="myplans">
+            <h2 class="plan-title inter">INTERMIDIATE</h2>
+
+            <ul>
+                <li class="feature">24/7 Customer Support</li>
+                <li class="feature">Basic Analytics Dashboard</li>
+                <li class="feature-disabled">Premium Data Security</li>
+            </ul>
+
+            <p data-price="40.99" class="plan-price"><b class="plan-price-content">$40.99</b>/month</p>
+            <button class="buy-now-btn">Buy Now &rightarrow;</button>
+        </article>
+
+        <article class="myplans">
+            <h2 class="plan-title adv">ADVANCED</h2>
+
+            <ul>
+                <li class="feature">24/7 Customer Support</li>
+                <li class="feature">Basic Analytics Dashboard</li>
+                <li class="feature">Premium Data Security</li>
+            </ul>
+
+            <p data-price="60.99" class="plan-price"><b class="plan-price-content">$60.99</b>/month</p>
+            <button class="buy-now-btn">Buy Now &rightarrow;</button>
+        </article>
+    </section>
+
+    <footer>
+        <p class="copy">&copy; 2024 MotionCut</p>
+    </footer>
+    <script>
+        function populateDropdowns() {
+            const currencies = ['$', '€', '£'];
+            const units = ['GB', 'MB', 'TB'];
+
+            const currencySelect = document.getElementById('currency-select');
+            const unitsSelect = document.getElementById('units-select');
+
+            currencies.forEach(currency => {
+                const option = document.createElement('option');
+                option.value = currency;
+                option.textContent = currency;
+                currencySelect.appendChild(option);
+            });
+
+            units.forEach(unit => {
+                const option = document.createElement('option');
+                option.value = unit;
+                option.textContent = unit;
+                unitsSelect.appendChild(option);
+            });
+        }
+
+        document.addEventListener('DOMContentLoaded', populateDropdowns);
+
+        function updateCurrencyAndUnits() {
+            const selectedCurrency = document.getElementById('currency-select').value;
+            const selectedUnits = document.getElementById('units-select').value;
+            const prices = document.querySelectorAll('.plan-price');
+            prices.forEach(priceElement => {
+                const price = parseFloat(priceElement.dataset.price); 
+                const convertedPrice = convertPrice(price, selectedCurrency);
+                priceElement.querySelector('.plan-price-content').textContent = `${selectedCurrency}${convertedPrice.toFixed(2)}`;
+                priceElement.dataset.price = convertedPrice.toFixed(2);
+            });
+        }
+
+        function convertPrice(price, currency) {
+           
+            const conversionRate = getConversionRate(currency);
+            return price * conversionRate;
+        }
+
+        function getConversionRate(currency) {
+           
+            const conversionRates = {
+                '$': 1,
+                '€': 0.85, // 1 USD = 0.85 EUR
+                '£': 0.74, // 1 USD = 0.74 GBP
+            };
+            return conversionRates[currency] || 1; // Default to 1 if currency is not found
+        }
+
+        document.addEventListener('DOMContentLoaded', updateCurrencyAndUnits);
+    </script>
+</body>
+
+</html>
